@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f172a;
+  --accent: #3b82f6;
+  --foreground: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Verdana, sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.28), transparent 30%),
+    radial-gradient(circle at 84% 6%, rgba(96, 165, 250, 0.18), transparent 26%),
+    radial-gradient(circle at 68% 78%, rgba(29, 78, 216, 0.24), transparent 28%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+main,
+nav,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+::selection {
+  background: #3b82f6;
+  color: white;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.45; transform: scaleX(0.82); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+.float-slow {
+  animation: float 7s ease-in-out infinite;
+}
+
+.pulse-line {
+  animation: pulseLine 3.2s ease-in-out infinite;
+}
